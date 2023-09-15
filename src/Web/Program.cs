@@ -42,6 +42,9 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+// https://stackoverflow.com/a/77110301/8783782
+app.UseRequestLocalization("en-US");
+
 app.UseRouting();
 
 app.UseAuthorization();
