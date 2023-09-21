@@ -89,6 +89,8 @@ namespace ApplicationCore.Services
         {
             var basket = await GetOrCreateBasketAsync(buyerId);
 
+            // todo: check if quantities are positive
+
             foreach (var item in basket.Items)
             {
                 if (quantities.ContainsKey(item.ProductId))
