@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ApplicationCore.Entities;
 
 namespace ApplicationCore.Interfaces
 {
-    internal interface IOrderService
+    public interface IOrderService
     {
+        Task<Order> CreateOrderAsync(string buyerId, Address shippingAddress);
     }
 }
