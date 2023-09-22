@@ -68,9 +68,10 @@ using (var scope = app.Services.CreateScope())
     var watchHubContext = scope.ServiceProvider.GetRequiredService<WatchHubContext>();
     await WatchHubContextSeed.SeedAsync(watchHubContext);
 
+    var appIdentityDbContext = scope.ServiceProvider.GetRequiredService<AppIdentityDbContext>();
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-    await AppIdentityDbContextSeed.SeedAsync(roleManager, userManager);
+    await AppIdentityDbContextSeed.SeedAsync(appIdentityDbContext, roleManager, userManager);
 }
 
 app.Run();
